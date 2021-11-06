@@ -6,7 +6,9 @@ function CustomInput(props) {
 
   return (
     <div className={styles.container}>
-      {/* <label className={styles.label}>{name}</label> */}
+      <label htmlFor={id}>
+        {name} <span className={styles.requiredStar}>*</span>
+      </label>
       <input
         className={styles.inputField}
         id={id}

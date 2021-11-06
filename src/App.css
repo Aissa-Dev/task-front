@@ -1,61 +1,70 @@
 :root {
-  --primary: rgba(30, 32, 34, 0.911);
-  --secondary: hsl(176, 96%, 69%, 0.6);
+  --bg-color: #dcdefe;
+  --primary-color: #5138ee;
   --sub-bg: rgba(0, 0, 0, 0.829);
   --sub-bg2: rgba(0, 0, 0, 0.856);
-  --primary-text-color: #66fcf1;
+  --primary-text-color: black;
 }
 .App {
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-image: linear-gradient(-135deg, var(--primary), var(--secondary));
-  /* ,
-    url("imgs/2.png"); */
+  /* background-image: linear-gradient(-135deg, var(--primary), var(--secondary)),
+    url("imgs/1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: left;
+  background-size: cover; */
+  background: var(--bg-color);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
 }
 
 .container {
   width: 60%;
   display: flex;
-  height: 70%;
+  height: 90%;
+  max-height: 600px;
   border-radius: 0.4rem;
   overflow: hidden;
-  background-image: url("imgs/5.svg");
+  /* background-image: url("imgs/2.svg");
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: bottom; */
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  position: relative;
 }
-.leftSection {
-  width: 100%;
-  min-height: 100%;
-  /* background-image: url("imgs/5.svg"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .rightSection {
   width: 100%;
   min-height: 100%;
-  background: linear-gradient(-135deg, var(--sub-bg), var(--sub-bg2));
+  background: #eff3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rightSection img {
+  width: 90%;
+}
+
+.leftSection {
+  width: 100%;
+  min-height: 100%;
+  background: white;
 }
 
 .message {
-  color: rgba(252, 10, 10, 0.637);
+  color: rgba(252, 10, 10, 0.842);
   text-transform: capitalize;
   font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
 }
 .message::after {
   content: " !";
 }
 
-@media (max-width: 800px) {
-  .leftSection {
+@media (max-width: 900px) {
+  .rightSection {
     display: none;
   }
 }
@@ -63,10 +72,11 @@
 @media (max-width: 600px) {
   .container {
     width: 90%;
-    height: 90%;
   }
 }
 
 h2 {
   color: #66fcf1;
 }
+
+/* By clicking Subscribe, you agree to our Licensing, Privacy Policy, and Cookie Policy. */

@@ -1,13 +1,37 @@
 form {
-  margin: 2em;
+  padding: 0.5rem 2em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.title {
-  display: block;
-  font-size: 20px;
-  color: var(--primary-text-color);
-  margin: 4rem 0;
-  text-align: center;
+form .form-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.header-form {
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.header-form .logo img {
+  width: 30px;
+}
+.header-form .title {
+  font-size: 2em;
+}
+
+.header-form .subtitle {
+  margin-top: 4px;
+}
+
+.inputsSection {
+  margin-top: 2rem;
 }
 
 .checkbox-container {
@@ -20,6 +44,8 @@ form {
 
 .checkbox-container div p {
   margin-left: 6px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 input[type="checkbox"] {
@@ -36,18 +62,31 @@ input[type="checkbox"] {
   text-align: center;
   line-height: 1em;
   background: transparent;
+  border-radius: 2px;
 }
 
 input[type="checkbox"]:checked:after {
   content: "✔";
-  color: var(--primary-text-color);
+  font-weight: bolder;
+  color: var(--primary-color);
 }
-.btns {
+
+.form-buttons {
   display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
+  justify-content: space-between;
 }
-.flipped {
-  transform: rotateY(180deg);
-  transition: transform 1s ease;
+
+.form-buttons button:nth-child(1) {
+  width: 65%;
+}
+
+.form-buttons button:nth-child(2) {
+  width: 30%;
+  background: rgb(240, 107, 107);
+  color: white;
+}
+
+.form-buttons button:nth-child(2):hover {
+  box-shadow: 0px 0px 4px 0px #d6d6d6;
+  background: #cf0505;
 }

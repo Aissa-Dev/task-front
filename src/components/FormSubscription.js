@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
 import CustomButton from "./customButton/CustomButton";
 import CustomInput from "./customInput/CustomInput";
 import { validate } from "./dataValidation";
 import "./FormSubscription.css";
+import logo from "../images/newsletter-icon.svg";
+import Welcome from "./Welcome";
 
+Modal.setAppElement("#root");
 function FormSubscription() {
   const initValues = { name: "", company: "", email: "", accept: false };
   const [formErrors, setFormErrors] = useState({});
   const [formValues, setFormValues] = useState(initValues);
   const [isChecked, setIsChecked] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
-  const [flipped, setFlipped] = useState("");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     if (Object.keys(formErrors).length === 0 && isSubmit && isChecked) {
       console.log("thank you");
-      setFlipped("flipped");
+      setTimeout(() => {
+        setModalIsOpen(true);
+        handleReset();
+      }, 500);
     }
   }, [formErrors]);
 
@@ -33,7 +40,7 @@ function FormSubscription() {
 
   //Reseting input values and errors messages
   const handleReset = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setFormErrors({});
     setFormValues(initValues);
     setIsChecked(false);
@@ -74,42 +81,58 @@ function FormSubscription() {
   ];
 
   return (
-    <form className={flipped}>
-      <span className="title">
-        Subscribe to our <span> NewsLetter</span>
-      </span>
-      <div className="inputsSection">
-        {inputsItems.map((input) => (
-          <CustomInput {...input} key={input.id} />
-        ))}
+    <>
+      {!modalIsOpen ? (
+        <form>
+          <div className="header-form">
+            <div className="logo">
+              <img src={logo} alt="" />
+            </div>
 
-        <div className="checkbox-container">
-          <div>
-            <input
-              className="chk"
-              type="checkbox"
-              checked={isChecked}
-              name="accept"
-              onChange={() => {
-                setIsChecked(!isChecked);
-                setFormValues({ ...formValues, accept: !isChecked });
-              }}
-            />
-            <p>Agree to subscribe</p>
+            <div>
+              <h1 className="title">Subscribe</h1>
+              <p className="subtitle form-text">
+                Keep you updated to our newsletter
+              </p>
+            </div>
           </div>
-          {formErrors.accept ? (
-            <p className="message">{formErrors.accept}</p>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-      <div className="btns">
-        <CustomButton action={handleReset} title="reset" />
 
-        <CustomButton action={handleSubmit} title="Submit" />
-      </div>
-    </form>
+          <div className="inputsSection">
+            {inputsItems.map((input) => (
+              <CustomInput {...input} key={input.id} />
+            ))}
+
+            <div className="checkbox-container">
+              <div>
+                <input
+                  className="chk"
+                  type="checkbox"
+                  checked={isChecked}
+                  name="accept"
+                  onChange={() => {
+                    setIsChecked(!isChecked);
+                    setFormValues({ ...formValues, accept: !isChecked });
+                  }}
+                />
+                <p>Agree to subscribe to newsletter</p>
+              </div>
+              {formErrors.accept ? (
+                <p className="message">{formErrors.accept}</p>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+          <div className="form-buttons">
+            <CustomButton action={handleSubmit} title="Submit" />
+
+            <CustomButton action={handleReset} title="clear" />
+          </div>
+        </form>
+      ) : (
+        <Welcome open={modalIsOpen} setOpen={setModalIsOpen} />
+      )}
+    </>
   );
 }
 
