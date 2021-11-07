@@ -45,6 +45,7 @@ export const checkboxItem = (
       <div>
         <input
           className="chk"
+          id="chk-agree"
           type="checkbox"
           checked={isChecked}
           name="accept"
@@ -55,7 +56,9 @@ export const checkboxItem = (
         />
 
         <div>
-          <p>Agree to subscribe to newsletter</p>
+          <label htmlFor="chk-agree" className="label-agree">
+            Agree to subscribe to newsletter
+          </label>
         </div>
       </div>
       {formErrors.accept ? <p className="message">{formErrors.accept}</p> : ""}

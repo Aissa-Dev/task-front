@@ -52,10 +52,11 @@ form .form-text {
   align-items: center;
 }
 
-.checkbox-container div p {
+.checkbox-container div .label-agree {
   margin-left: 6px;
   font-size: 14px;
   font-weight: 500;
+  margin-bottom: 0;
 }
 
 input[type="checkbox"] {
