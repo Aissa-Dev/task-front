@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./CustomInput.module.css";
+//import styles as CSS Modules for the reusable compenent
+import styles from "./FormInput.module.css";
 
-function CustomInput(props) {
+function FormInput(props) {
   const { name, id, errors, value, type, placeholder, onChange, label } = props;
-
   return (
     <div className={styles.container}>
       <label htmlFor={id}>
-        {name} <span className={styles.requiredStar}>*</span>
+        {label} <span className={styles.requiredStar}>*</span>
       </label>
       <input
         className={styles.inputField}
@@ -24,4 +24,4 @@ function CustomInput(props) {
   );
 }
 
-export default CustomInput;
+export default FormInput;

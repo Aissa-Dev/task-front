@@ -1,17 +1,13 @@
 import React from "react";
 import "./Welcome.css";
-import welcomeImg from "../images/welcome.svg";
-import closeIcon from "../images/close-icon.svg";
+import welcomeImg from "../../images/welcome.svg";
+import closeIcon from "../../images/close-icon.svg";
 
-function Welcome({ open, setOpen }) {
+function Welcome({ setWelcomeModalOpen }) {
   return (
     <div className="welcome">
       <div className="close">
-        <button
-          onClick={() => {
-            setOpen(false);
-          }}
-        >
+        <button onClick={() => setWelcomeModalOpen(false)}>
           <img src={closeIcon} alt="" />
         </button>
       </div>

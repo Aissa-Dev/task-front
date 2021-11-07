@@ -22,7 +22,7 @@ label {
   padding: 13px 20px;
   box-sizing: border-box;
   border: 1px solid #d6d6d6;
-  border-radius: 50px;
+  border-radius: 3px;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -35,25 +35,7 @@ label {
   border: 1px solid var(--primary-color);
 }
 .inputField::-webkit-input-placeholder {
-  color: var(--placeholder);
+  color: #969696;
   font-weight: 300;
   font-size: 14px;
 }
-
-/* .inputField {
-  width: 100%;
-  padding: 2px;
-  background: transparent;
-  outline: none;
-  border: none;
-  border-bottom: 1px solid var(--primary-text-color);
-  color: white;
-  font-size: 16px;
-}
-
-.inputField::placeholder {
-  color: var(--primary-text-color);
-  opacity: 0.4; 
-  text-transform: capitalize;
-}
- */

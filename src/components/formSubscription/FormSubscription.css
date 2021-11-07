@@ -1,5 +1,5 @@
 form {
-  padding: 0.5rem 2em;
+  padding: 2em 2rem 3rem 2rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -19,15 +19,25 @@ form .form-text {
   flex-direction: column;
   margin-top: 2rem;
 }
+.header-form .logo {
+  text-align: end;
+}
 .header-form .logo img {
-  width: 30px;
+  width: 40px;
+  transform: scaleX(-1) rotate(50deg) rotateX(30deg);
 }
 .header-form .title {
   font-size: 2em;
+  margin-bottom: 0.5rem;
 }
 
 .header-form .subtitle {
   margin-top: 4px;
+}
+
+.header-form .subtitle span {
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .inputsSection {
@@ -74,6 +84,8 @@ input[type="checkbox"]:checked:after {
 .form-buttons {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
 }
 
 .form-buttons button:nth-child(1) {
