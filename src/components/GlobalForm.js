@@ -15,7 +15,7 @@ function GlobalForm() {
         )}
       </div>
       <div className="rightSection">
-        <img src={emailSvg} alt="" />
+        <img src={emailSvg} alt="email-svg" />
       </div>
     </div>
   );

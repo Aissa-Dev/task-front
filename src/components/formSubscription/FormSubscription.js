@@ -3,7 +3,7 @@ import "./FormSubscription.css";
 import FormButton from "../formButton/FormButton";
 import FormInput from "../formInput/FormInput";
 import logo from "../../images/newsletter-icon.svg";
-import { validate } from "../../helper/dataValidation";
+import { validate } from "../../helpers/dataValidation";
 import { checkboxItem, inputsItems } from "../../inputsElements";
 
 function FormSubscription({ setWelcomeModalOpen }) {

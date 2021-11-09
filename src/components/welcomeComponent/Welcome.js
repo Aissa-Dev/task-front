@@ -8,7 +8,7 @@ function Welcome({ setWelcomeModalOpen }) {
     <div className="welcome">
       <div className="close">
         <button onClick={() => setWelcomeModalOpen(false)}>
-          <img src={closeIcon} alt="" />
+          <img src={closeIcon} alt="close-icon" />
         </button>
       </div>
 
@@ -23,4 +23,3 @@ function Welcome({ setWelcomeModalOpen }) {
 }
 
 export default Welcome;
-//&times;
