@@ -15,7 +15,7 @@ function Welcome({ setWelcomeModalOpen }) {
       <div className="content">
         <div>
           <h1>Success</h1>
-          <img src={welcomeImg} alt="" />
+          <img src={welcomeImg} alt="Welcome-img" />
         </div>
       </div>
     </div>

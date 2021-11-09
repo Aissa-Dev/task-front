@@ -10,10 +10,13 @@
   color: white;
   border: none;
   margin-top: 0;
-  background: var(--primary-color);
+
   text-transform: capitalize;
 }
 .button:hover {
-  box-shadow: 0px 0px 4px 0px #d6d6d6;
-  background: #1f0098;
+  box-shadow: 0px 0px 4px 2px #d6d6d6;
+}
+
+.button:active {
+  transform: scale(0.97);
 }

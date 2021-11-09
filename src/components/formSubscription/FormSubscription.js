@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./FormSubscription.css";
-import CustomButton from "../formButton/FormButton";
-import CustomInput from "../formInput/FormInput";
+import FormButton from "../formButton/FormButton";
+import FormInput from "../formInput/FormInput";
 import logo from "../../images/newsletter-icon.svg";
 import { validate } from "../../helper/dataValidation";
 import { checkboxItem, inputsItems } from "../../inputsElements";
@@ -12,19 +12,28 @@ function FormSubscription({ setWelcomeModalOpen }) {
   const [formValues, setFormValues] = useState(initValues);
   const [isChecked, setIsChecked] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
+  const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmit && isChecked) {
-      //take 0.8 sec, like a request
+    //Check if the form is valid
+    if (isFormValid()) {
+      //disable button click when requesting to the server to prevent user from clicking many times
+      setDisableButton(true);
+      //take 0.8 sec, like a request to the server
       setTimeout(() => {
         setWelcomeModalOpen(true);
       }, 800);
       return () => {
         handleReset();
+        setDisableButton(false);
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formErrors]);
+
+  const isFormValid = () => {
+    return Object.keys(formErrors).length === 0 && isSubmit && isChecked;
+  };
 
   //update form values
   const handleChange = (e) => {
@@ -50,7 +59,7 @@ function FormSubscription({ setWelcomeModalOpen }) {
     <form>
       <div className="header-form">
         <div className="logo">
-          <img src={logo} alt="" />
+          <img src={logo} alt="Logo" />
         </div>
         <div>
           <h1 className="title">Subscribe</h1>
@@ -61,7 +70,7 @@ function FormSubscription({ setWelcomeModalOpen }) {
       </div>
       <div className="inputsSection">
         {inputsItems(formValues, formErrors, handleChange).map((input) => (
-          <CustomInput {...input} key={input.id} />
+          <FormInput {...input} key={input.id} />
         ))}
         {checkboxItem(
           isChecked,
@@ -72,8 +81,18 @@ function FormSubscription({ setWelcomeModalOpen }) {
         )}
       </div>
       <div className="form-buttons">
-        <CustomButton action={handleSubmit} title="Submit" type="submit" />
-        <CustomButton action={handleReset} title="clear" type="reset" />
+        <FormButton
+          action={handleSubmit}
+          title="Submit"
+          type="submit"
+          disableButton={disableButton}
+        />
+        <FormButton
+          action={handleReset}
+          title="clear"
+          type="reset"
+          disableButton={disableButton}
+        />
       </div>
     </form>
   );
