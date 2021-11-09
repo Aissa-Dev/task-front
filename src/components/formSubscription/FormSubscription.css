@@ -108,9 +108,7 @@ input[type="checkbox"]:checked:after {
 }
 
 .form-buttons button:nth-child(1):disabled,
-.form-buttons button:nth-child(2):disabled,
-.form-buttons button:nth-child(1)[disabled],
-.form-buttons button:nth-child(2)[disabled] {
+.form-buttons button:nth-child(1)[disabled] {
   border: 1px solid #999999;
   background-color: #eee;
   color: #666666;

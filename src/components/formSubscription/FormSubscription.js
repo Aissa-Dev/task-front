@@ -25,7 +25,6 @@ function FormSubscription({ setWelcomeModalOpen }) {
       }, 800);
       return () => {
         handleReset();
-        setDisableButton(false);
       };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,7 +90,7 @@ function FormSubscription({ setWelcomeModalOpen }) {
           action={handleReset}
           title="clear"
           type="reset"
-          disableButton={disableButton}
+          disableButton={false}
         />
       </div>
     </form>

@@ -10,7 +10,6 @@ const valueWithoutSpaces = (value) => {
 };
 
 export const validate = (values) => {
-  console.log("values : ", values);
   const errors = {};
 
   //Check Name
@@ -34,6 +33,5 @@ export const validate = (values) => {
     errors.accept = "Please accept to subscribe";
   }
 
-  console.log("Erros : ", errors);
   return errors;
 };
